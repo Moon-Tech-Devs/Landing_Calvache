@@ -123,12 +123,6 @@ function Hero() {
               <WhatsAppIcon className="w-5 h-5" />
               Agendar por WhatsApp
             </a>
-            <a
-              href="#servicios"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-ink/15 hover:border-ink/40 hover:bg-ivory transition font-medium"
-            >
-              Ver servicios
-            </a>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-muted">
