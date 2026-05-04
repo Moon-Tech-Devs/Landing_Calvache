@@ -16,7 +16,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "Dra. Leydi Calvache — Médica a Domicilio",
   description:
-    "Atención médica general a domicilio en Quito. Consulta general, emergencias menores, sueroterapia y más.",
+    "Atención médica general a domicilio en Manta. Consulta general, emergencias menores, sueroterapia y más.",
 };
 
 export default function RootLayout({

@@ -138,41 +138,40 @@ function Hero() {
           </div>
         </div>
 
-        <div className="lg:col-span-5">
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-3xl bg-gradient-to-br from-primary to-primary-soft p-1 shadow-2xl shadow-primary/20">
-              <div className="w-full h-full rounded-[1.4rem] bg-ivory grid place-items-center relative overflow-hidden">
-                <div
-                  aria-hidden
-                  className="absolute inset-0 opacity-50"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(45deg, transparent 0 18px, #1A4D3A0a 18px 19px)",
-                  }}
-                />
-                <div className="relative text-center px-8">
-                  <div className="mx-auto w-24 h-24 rounded-full bg-primary/10 grid place-items-center mb-5">
-                    <CrossIcon className="w-12 h-12 text-primary" />
-                  </div>
-                  <p className="font-display text-2xl text-ink leading-snug">
-                    "Cada paciente merece atención médica con tiempo, escucha y
-                    cuidado."
-                  </p>
-                  <p className="mt-4 text-sm text-ink-muted">
-                    — Dra. Leydi Calvache
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-black/5">
-              <div className="w-10 h-10 rounded-full bg-accent/30 grid place-items-center">
-                <ClockIcon className="w-5 h-5 text-primary" />
+        <div className="lg:col-span-5 flex items-center justify-center">
+          <div className="w-full max-w-sm rounded-3xl border border-black/5 bg-white shadow-xl shadow-black/5 p-8 flex flex-col gap-6">
+            <div className="flex items-center gap-3">
+              <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-primary text-white">
+                <CrossIcon className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-xs text-ink-muted">Respuesta rápida</p>
-                <p className="text-sm font-medium">Por WhatsApp</p>
+                <p className="font-semibold text-ink text-sm">Dra. Leydi Calvache</p>
+                <p className="text-xs text-ink-muted">Médica General · Manta, Ecuador</p>
               </div>
             </div>
+
+            <div className="h-px bg-black/5" />
+
+            <ul className="flex flex-col gap-3">
+              {[
+                "Consulta general a domicilio",
+                "Emergencias menores y suturas",
+                "Sueroterapia y rehidratación",
+                "Atención a adultos y niños",
+                "Manejo de enfermedades crónicas",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2.5 text-sm text-ink-muted">
+                  <CheckIcon className="w-4 h-4 flex-shrink-0 text-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="h-px bg-black/5" />
+
+            <p className="text-center text-sm text-ink-muted italic leading-relaxed">
+              "Su salud merece tiempo, escucha y dedicación — no una sala de espera."
+            </p>
           </div>
         </div>
       </div>
@@ -311,7 +310,7 @@ function About() {
           Dra. Leydi Calvache
         </h2>
         <p className="mt-3 text-ink-muted text-lg">
-          Médico General · Reg. Profesional [pendiente]
+          Médico General
         </p>
         <p className="mt-8 text-lg text-ink-muted leading-relaxed">
           Mi compromiso es brindar una atención médica humana, accesible y de
@@ -340,7 +339,7 @@ function FinalCTA() {
         <div className="relative grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="font-display text-4xl sm:text-5xl tracking-tight leading-tight">
-              ¿Lista para
+              ¿Listo para
               <br />
               <span className="italic text-accent">una consulta?</span>
             </h2>
