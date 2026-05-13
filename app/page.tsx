@@ -1,3 +1,7 @@
+'use client';
+
+import Image from 'next/image';
+
 const WHATSAPP_NUMBER = "593983460388";
 const WHATSAPP_MESSAGE = "Hola Dra. Leydi, me gustaría agendar una consulta a domicilio.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -306,6 +310,17 @@ function About() {
         <p className="mt-3 text-ink-muted text-lg">
           Médico General
         </p>
+        
+        <div className="mt-8 flex justify-center">
+          <Image
+            src="/DRA.LeydiCalvache.jpeg"
+            alt="Dra. Leydi Calvache"
+            width={300}
+            height={350}
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+        
         <p className="mt-8 text-lg text-ink-muted leading-relaxed">
           Mi compromiso es brindar una atención médica humana, accesible y de
           calidad. Creo en escuchar antes de prescribir, en explicar antes de
