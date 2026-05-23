@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 
 const WHATSAPP_NUMBER = "593983460388";
 const WHATSAPP_MESSAGE = "Hola Dra. Leydi, me gustaría agendar una consulta a domicilio.";
@@ -12,7 +13,7 @@ const services = [
   {
     title: "Consulta general",
     description:
-      "Evaluación clínica completa en la comodidad de su hogar, con tiempo dedicado y sin esperas.",
+      "Si tienes dolores de cabeza, problemas para dormir, calambres musculares, te llenas de gases y otros síntomas, es hora de una consulta médica.",
     icon: StethoscopeIcon,
   },
   {
@@ -36,7 +37,7 @@ const services = [
   {
     title: "Sueroterapia",
     description:
-      "Hidratación intravenosa supervisada para recuperación, vitalidad y bienestar.",
+      "Hidratación intravenosa supervisada para recuperación, vitalidad, belleza y bienestar.",
     icon: DropIcon,
   },
 ];
@@ -75,6 +76,7 @@ function Header() {
           <a href="#por-que" className="hover:text-ink transition">¿Por qué?</a>
           <a href="#sobre-mi" className="hover:text-ink transition">Sobre mí</a>
         </nav>
+     {/*
         <a
           href={WHATSAPP_URL}
           target="_blank"
@@ -84,12 +86,35 @@ function Header() {
           <WhatsAppIcon className="w-4 h-4" />
           Agendar
         </a>
+*/}
       </div>
     </header>
   );
 }
 
 function Hero() {
+  const carouselImages = [
+    "/Gemini_Generated_Image_5couwx5couwx5cou.png",
+    "/Gemini_Generated_Image_c4in52c4in52c4in.png",
+    "/Gemini_Generated_Image_rw35c4rw35c4rw35.png",
+    "/Gemini_Generated_Image_umud8wumud8wumud.png",
+    "/Gemini_Generated_Image_vpqmhovpqmhovpqm.png",
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === carouselImages.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <section className="relative overflow-hidden">
       <div
@@ -137,7 +162,7 @@ function Hero() {
         </div>
 
         <div className="lg:col-span-5 flex items-center justify-center">
-          <div className="w-full max-w-sm rounded-3xl border border-black/5 bg-white shadow-xl shadow-black/5 p-8 flex flex-col gap-6">
+          <div className="w-full rounded-3xl border border-black/5 bg-white shadow-xl shadow-black/5 p-8 flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-primary text-white">
                 <CrossIcon className="w-5 h-5" />
@@ -149,6 +174,53 @@ function Hero() {
             </div>
 
             <div className="h-px bg-black/5" />
+
+            {/* Carousel */}
+            <div className="relative w-full h-56 rounded-lg overflow-hidden bg-gray-100">
+              <Image
+                src={carouselImages[currentIndex]}
+                alt={`Imagen de galería ${currentIndex + 1}`}
+                fill
+                className="object-cover transition-opacity duration-300"
+                priority
+              />
+              
+              {/* Navigation Buttons */}
+              <button
+                onClick={goToPrevious}
+                className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white text-primary shadow-lg transition hover:scale-110"
+                aria-label="Imagen anterior"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white text-primary shadow-lg transition hover:scale-110"
+                aria-label="Imagen siguiente"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Indicators */}
+            <div className="flex justify-center gap-2">
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    index === currentIndex
+                      ? "w-6 bg-primary"
+                      : "w-2 bg-primary/30 hover:bg-primary/50"
+                  }`}
+                  aria-label={`Ir a imagen ${index + 1}`}
+                />
+              ))}
+            </div>
 
             <ul className="flex flex-col gap-3">
               {[
